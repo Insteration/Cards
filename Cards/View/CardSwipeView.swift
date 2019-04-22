@@ -1,5 +1,5 @@
 //
-//  StackContainerView.swift
+//  CardSwipeView.swift
 //  Cards
 //
 //  Created by Artem Karmaz on 4/22/19.
@@ -10,27 +10,32 @@ import UIKit
 
 class CardSwipeView: UIView {
     
-    var swipeView: UIView!
-    var shadowView: UIView!
+    //MARK: - Properties
+    var swipeView : UIView!
+    var shadowView : UIView!
     var imageView: UIImageView!
     
     var label = UILabel()
     var moreButton = UIButton()
     
-    var delegate: CardsSwipeDelegate?
+    var delegate : CardsSwipeDelegate?
     
-    var divisor: CGFloat = 0
+    var divisor : CGFloat = 0
     let baseView = UIView()
     
-    var dataSource: Cards? {
+    
+    
+    var dataSource : Cards? {
         didSet {
-            swipeView.backgroundColor = dataSource?.color
+            swipeView.backgroundColor = dataSource?.bgColor
             label.text = dataSource?.text
             guard let image = dataSource?.image else { return }
             imageView.image = UIImage(named: image)
         }
     }
     
+    
+    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: .zero)
         configureShadowView()
@@ -46,23 +51,25 @@ class CardSwipeView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureShadowView() {
-    shadowView = UIView()
-    shadowView.backgroundColor = .clear
-    shadowView.layer.shadowColor = UIColor.black.cgColor
-    shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
-    shadowView.layer.shadowOpacity = 0.8
-    shadowView.layer.shadowRadius = 4.0
-    addSubview(shadowView)
+    //MARK: - Configuration
     
-    shadowView.translatesAutoresizingMaskIntoConstraints = false
-    shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-    shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-    shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-    shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+    func configureShadowView() {
+        shadowView = UIView()
+        shadowView.backgroundColor = .clear
+        shadowView.layer.shadowColor = UIColor.black.cgColor
+        shadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        shadowView.layer.shadowOpacity = 0.8
+        shadowView.layer.shadowRadius = 4.0
+        addSubview(shadowView)
+        
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
+        shadowView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        shadowView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        shadowView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        shadowView.topAnchor.constraint(equalTo: topAnchor).isActive = true
     }
     
-    private func configureSwipeView() {
+    func configureSwipeView() {
         swipeView = UIView()
         swipeView.layer.cornerRadius = 15
         swipeView.clipsToBounds = true
@@ -75,7 +82,7 @@ class CardSwipeView: UIView {
         swipeView.topAnchor.constraint(equalTo: shadowView.topAnchor).isActive = true
     }
     
-    private func configureLabelView() {
+    func configureLabelView() {
         swipeView.addSubview(label)
         label.backgroundColor = .white
         label.textColor = .black
@@ -89,7 +96,7 @@ class CardSwipeView: UIView {
         
     }
     
-    private func configureImageView() {
+    func configureImageView() {
         imageView = UIImageView()
         swipeView.addSubview(imageView)
         imageView.contentMode = .scaleAspectFit
@@ -101,7 +108,7 @@ class CardSwipeView: UIView {
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
     
-    private func configureButton() {
+    func configureButton() {
         label.addSubview(moreButton)
         moreButton.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(named: "plus-tab")?.withRenderingMode(.alwaysTemplate)
@@ -115,12 +122,12 @@ class CardSwipeView: UIView {
         
     }
     
-    private func configureTapGesture() {
+    func configureTapGesture() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapGesture)))
     }
     
     
-    private func addPanGestureOnCards() {
+    func addPanGestureOnCards() {
         self.isUserInteractionEnabled = true
         addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture)))
     }
@@ -128,7 +135,7 @@ class CardSwipeView: UIView {
     
     
     //MARK: - Handlers
-    @objc func handlePanGesture(sender: UIPanGestureRecognizer) {
+    @objc func handlePanGesture(sender: UIPanGestureRecognizer){
         let card = sender.view as! CardSwipeView
         let point = sender.translation(in: self)
         let centerOfParentContainer = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
@@ -147,7 +154,7 @@ class CardSwipeView: UIView {
                     self.layoutIfNeeded()
                 }
                 return
-            } else if card.center.x < -65 {
+            }else if card.center.x < -65 {
                 delegate?.swipeDidEnd(on: card)
                 UIView.animate(withDuration: 0.2) {
                     card.center = CGPoint(x: centerOfParentContainer.x + point.x - 200, y: centerOfParentContainer.y + point.y + 75)
@@ -170,8 +177,8 @@ class CardSwipeView: UIView {
         }
     }
     
-    @objc func handleTapGesture(sender: UITapGestureRecognizer) {
-        
+    @objc func handleTapGesture(sender: UITapGestureRecognizer){
     }
+    
     
 }

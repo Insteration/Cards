@@ -9,12 +9,12 @@
 import UIKit
 
 struct Cards {
-    var color: UIColor
+    var bgColor: UIColor
     var text: String
     var image: String
     
-    init(color: UIColor, text: String, image: String) {
-        self.color = color
+    init(bgColor: UIColor, text: String, image: String) {
+        self.bgColor = bgColor
         self.text = text
         self.image = image
     }

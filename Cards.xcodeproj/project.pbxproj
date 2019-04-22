@@ -11,11 +11,12 @@
 		D9DDBAD3226DC4B800B230F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DDBAD1226DC4B800B230F4 /* Main.storyboard */; };
 		D9DDBAD5226DC4BA00B230F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DDBAD4226DC4BA00B230F4 /* Assets.xcassets */; };
 		D9DDBAD8226DC4BA00B230F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9DDBAD6226DC4BA00B230F4 /* LaunchScreen.storyboard */; };
-		D9DDBAE0226DC56600B230F4 /* CardsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBADF226DC56600B230F4 /* CardsController.swift */; };
+		D9DDBAE0226DC56600B230F4 /* CardsViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBADF226DC56600B230F4 /* CardsViewContoller.swift */; };
 		D9DDBAE2226DC5A300B230F4 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAE1226DC5A300B230F4 /* Cards.swift */; };
 		D9DDBAE4226DC67100B230F4 /* CardsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAE3226DC67100B230F4 /* CardsContainerView.swift */; };
-		D9DDBAE7226DC71300B230F4 /* StackContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAE6226DC71300B230F4 /* StackContainerView.swift */; };
+		D9DDBAE7226DC71300B230F4 /* CardSwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAE6226DC71300B230F4 /* CardSwipeView.swift */; };
 		D9DDBAE9226DC79C00B230F4 /* CardsSwipeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAE8226DC79C00B230F4 /* CardsSwipeProtocols.swift */; };
+		D9DDBAEB226DCDDC00B230F4 /* CardsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DDBAEA226DCDDC00B230F4 /* CardsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,11 +26,12 @@
 		D9DDBAD4226DC4BA00B230F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9DDBAD7226DC4BA00B230F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9DDBAD9226DC4BA00B230F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9DDBADF226DC56600B230F4 /* CardsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsController.swift; sourceTree = "<group>"; };
+		D9DDBADF226DC56600B230F4 /* CardsViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewContoller.swift; sourceTree = "<group>"; };
 		D9DDBAE1226DC5A300B230F4 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		D9DDBAE3226DC67100B230F4 /* CardsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsContainerView.swift; sourceTree = "<group>"; };
-		D9DDBAE6226DC71300B230F4 /* StackContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContainerView.swift; sourceTree = "<group>"; };
+		D9DDBAE6226DC71300B230F4 /* CardSwipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSwipeView.swift; sourceTree = "<group>"; };
 		D9DDBAE8226DC79C00B230F4 /* CardsSwipeProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsSwipeProtocols.swift; sourceTree = "<group>"; };
+		D9DDBAEA226DCDDC00B230F4 /* CardsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +65,14 @@
 			isa = PBXGroup;
 			children = (
 				D9DDBACD226DC4B800B230F4 /* AppDelegate.swift */,
-				D9DDBADF226DC56600B230F4 /* CardsController.swift */,
-				D9DDBAE5226DC70300B230F4 /* View */,
-				D9DDBAE1226DC5A300B230F4 /* Cards.swift */,
-				D9DDBAD1226DC4B800B230F4 /* Main.storyboard */,
 				D9DDBAD4226DC4BA00B230F4 /* Assets.xcassets */,
-				D9DDBAD6226DC4BA00B230F4 /* LaunchScreen.storyboard */,
+				D9DDBAE1226DC5A300B230F4 /* Cards.swift */,
+				D9DDBAE5226DC70300B230F4 /* View */,
+				D9DDBAEC226DCF0200B230F4 /* Controllers */,
 				D9DDBAD9226DC4BA00B230F4 /* Info.plist */,
+				D9DDBAD6226DC4BA00B230F4 /* LaunchScreen.storyboard */,
+				D9DDBAD1226DC4B800B230F4 /* Main.storyboard */,
+				D9DDBAED226DCF1200B230F4 /* Protocols */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
@@ -78,10 +81,26 @@
 			isa = PBXGroup;
 			children = (
 				D9DDBAE3226DC67100B230F4 /* CardsContainerView.swift */,
-				D9DDBAE6226DC71300B230F4 /* StackContainerView.swift */,
-				D9DDBAE8226DC79C00B230F4 /* CardsSwipeProtocols.swift */,
+				D9DDBAE6226DC71300B230F4 /* CardSwipeView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D9DDBAEC226DCF0200B230F4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9DDBADF226DC56600B230F4 /* CardsViewContoller.swift */,
+				D9DDBAEA226DCDDC00B230F4 /* CardsDetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D9DDBAED226DCF1200B230F4 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D9DDBAE8226DC79C00B230F4 /* CardsSwipeProtocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +175,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9DDBAE4226DC67100B230F4 /* CardsContainerView.swift in Sources */,
-				D9DDBAE0226DC56600B230F4 /* CardsController.swift in Sources */,
+				D9DDBAE0226DC56600B230F4 /* CardsViewContoller.swift in Sources */,
 				D9DDBACE226DC4B800B230F4 /* AppDelegate.swift in Sources */,
 				D9DDBAE9226DC79C00B230F4 /* CardsSwipeProtocols.swift in Sources */,
 				D9DDBAE2226DC5A300B230F4 /* Cards.swift in Sources */,
-				D9DDBAE7226DC71300B230F4 /* StackContainerView.swift in Sources */,
+				D9DDBAE7226DC71300B230F4 /* CardSwipeView.swift in Sources */,
+				D9DDBAEB226DCDDC00B230F4 /* CardsDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
